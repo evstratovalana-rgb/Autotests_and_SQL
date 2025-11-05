@@ -7,8 +7,12 @@
 
 SQL-Запрос:
 ```sql
-SELECT c.login, Count(o.id) AS "deliveryCount" 
-FROM "Couriers" AS c LEFT JOIN "Orders" AS o ON c.id = o."courierId"
+SELECT 
+    c.login,
+    COUNT(o.id) AS orders_in_delivery
+FROM "Couriers" c
+JOIN "Orders" o ON c.id = o."courierId"
+WHERE o."inDelivery" = true  
 ```
 
 ## Задание 2
